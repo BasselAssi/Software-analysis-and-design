@@ -1,0 +1,25 @@
+#Un paquebot peut être assigné à plusieurs itinéraires tant qu'ils ne se chevauchent pas [OCL]. 
+
+context Boat:
+inv:
+  self.itinerary->forAll(i1, i2 | 
+    i1 = i2 or i1.arrivalDate < i2.departureDate or i2.arrivalDate < i1.departureDate)
+
+
+#Un siège réservé devient assigné à un passager une fois payé: le siège est donc confirmé [OCL]
+
+context Seat
+pre: not self.assigned and self.reserved
+post: self.assigned and self.reserved and self.passenger <> null
+inv Seat_confirmed_after_payment :
+   self.assigned implies self.passenger <> null
+
+#Le client peut réserver un siège/cabine disponible dans un vol/trajet/itineraire donné [OCL]:
+
+context Flight
+pre: self.seats->select(s | s.reserved)->isEmpty()			// on s'assure que toutes les sieges sont libres avant
+pre: self.seats->select(s | not s.reserved)->notEmpty()		// s'assure qu'il y a des sieges dispo dans le vol avant que la RSV soit faites
+pre: self.seats->select(s | not s.reserved)->notEmpty(), 'No available seats on this flight' //si il n'y a plus de siege dispo
+post: self.seats->select(s | s.reserved)->notEmpty()
+inv Flight_seats :
+   self.seats->size() >= 1       //s'assure qu'il y a au moins un siege dans le vol

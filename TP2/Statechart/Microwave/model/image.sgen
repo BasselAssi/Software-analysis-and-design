@@ -1,0 +1,14 @@
+GeneratorModel for yakindu::images {
+
+	statechart microwave {
+
+		feature Outlet {
+			targetProject = "TP2"
+			targetFolder = "images"
+		}
+
+		feature Renderer {
+			format = "png"
+		}
+	}
+}

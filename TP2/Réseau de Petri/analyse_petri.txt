@@ -1,0 +1,49 @@
+Dans le réseau de petri, P0 et P1 représente l’attente des voitures aux entrées du tunnel,
+P2 et P3 représente l'intérieur du tunnel, et P4 et P5 sont les lumières de passage. 
+On commence avec 1 jeton dans P4 ou P5. Comme t0 et t3 sont des transitions avec que des sorties, 
+P0 et P1 peuvent avoir une infinité de jetons. 
+
+Les états sont composés de tel sorte que ca fasse [P0,P1,P2,P3,P4,P5].
+Considérons qu’il y a toujours des jetons dans P0 et P1. 
+
+Dans le graphe de couverture, il y a 4 états:
+Etat 1: [w,w,0,0,1,0]: Dans l'état 1, P4 contient 1 jeton, il est donc possible de franchir t1, 
+c’est a dire que la lumière de passage du côté Montréal est allumée pour laisser passer une voiture venant de Montréal. 
+Un jeton de P0 disparaît et un autre jeton apparaît dans P2. A part t0 et t3, 
+les autres transitions ne sont pas franchissables. On se retrouve ensuite dans l'État 2. 
+
+
+Etat 2: [w,w,1,0,0,0]: Dans l'état 2, P2 contient 1 jeton, c'est-à- dire qu’il y a une voiture venant de Montréal 
+dans le tunnel. t2 devient franchissable. Le jeton de P2 disparaît et un nouveau jeton apparaît dans P5. 
+A part t0 et t3, les autres transitions ne sont pas franchissables. On se retrouve ensuite dans l'État 3. 
+
+
+Etat 3: [w,w,0,0,0,1]: Dans l'état 3, P5 contient 1 jeton, il est donc possible de franchir t4, 
+c’est à dire que la voiture venant de Montréal est sortie du tunnel et est arrivée à la Rive-Sud, 
+et la lumiere de passage du coté Rive-Sud est allumée pour laisser passer une voiture venant de la Rive-Sud. 
+Un jeton de P1 disparaît et un autre jeton apparaît dans P3. A part t0 et t3, 
+les autres transitions ne sont pas franchissables. On se retrouve ensuite dans l’Etat 4. 
+
+
+Etat 4: [w,w,0,1,0,0]: Dans l'état 4, P3 contient 1 jeton, c'est-à- dire qu’il y a une voiture venant 
+de la Rive-Sud dans le tunnel. t5 devient franchissable. Le jeton de P3 disparaît et un nouveau jeton apparaît dans P4. 
+A part t0 et t3, les autres transitions ne sont pas franchissables. On se retrouve ensuite dans l'État 1, 
+où la voiture venant de la Rive-Sud est sortie et est arrivée à Montréal. 
+
+
+On remarque dans le graphe de couverture, qu'à part aux sources (c’est à dire P0 et P1), 
+il n’est possible d’avoir qu’un seul jeton dans chaque cercle. En plus, le graphe forme une boucle, 
+on ne s'arrête à aucun état, ce qui respecte la loi de la conservation. C’est parce qu'à part t0 et t3 qui sont 
+les sources, seul 1 seule transition est franchissable à chaque etat. On ne peut donc pas ajouter des jetons, 
+et si on retire le jeton, on se retrouve dans l'état suivant. Il n'est donc possible d’avoir qu’une seule voiture 
+dans le tunnel. 
+
+On observe aussi que la structure du réseau de petri force le système à alterner entre les voitures de Montréal 
+et de la Rive-Sud. Quand une voiture entre dans un tunnel, le jeton qui était dans le cercle de la lumière de passage 
+disparaît, puis aucun des cercles représentant les lumières de passage contient un jeton lorsqu’un jeton est dans les 
+cercles qui représentent le fait d'être à l'intérieur du tunnel. C’est à dire qu’aucune autre voiture peut entrer dans 
+le tunnel tant que la voiture à l'intérieur n’est pas sortie. Quand la voiture sort du tunnel, le système “allume” 
+la lumière de la ville d'arrivée de la voiture qui était à l'intérieur pour laisser entrer une autre voiture “venant 
+de la ville d'arrivée”. Ainsi, à chaque trajet accompli on change de sens. Les voitures de chaque côté sont servies 
+équitablement, on ne peut jamais avoir plus d'une fois le même trajet de suite. Le système est donc équitable et 
+il n’y a pas de famine. 

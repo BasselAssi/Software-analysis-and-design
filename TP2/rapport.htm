@@ -1,0 +1,519 @@
+<html>
+
+<head>
+    <title>IFT3911 DM2</title>
+    <style type="text/css">
+        table {
+            border: outset 2px black;
+            border-collapse: collapse;
+        }
+        
+        th {
+            border-bottom: double 2px black;
+        }
+        
+        td {
+            border-bottom: solid 1px black;
+        }
+        
+        .first_col {
+            border-right: double 2px black;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 style="text-align: center;">
+        IFT 3911 - Devoir 2</h1>
+    <h2>
+        Information général</h2>
+    <p>
+        <span style="font-weight: bold;">Nom: </span>Camille Divisia
+        <br />
+        <span style="font-weight: bold;">Matricule: </span>9289
+        <br />
+        <span style="font-weight: bold;">Courriel: </span>camille.divisia@umontreal.ca
+        <br />
+        <span style="font-weight: bold;">temps mis: </span>12h (Petri Nets) + 5h (Révision Design + Rapport) + 3h30 (Discussion Cohesion-Couplage) + 2h30 (Principes de Conception)
+    </p>
+    <p>
+        <span style="font-weight: bold;">Nom: </span>Hanz Schepens
+        <br />
+        <span style="font-weight: bold;">Matricule: </span>9679
+        <br />
+        <span style="font-weight: bold;">Courriel: </span>hanz.schepens@umontreal.ca
+        <br />
+        <span style="font-weight: bold;">temps mis: </span>16h (Statechart) + 4h (Révision design) + 6h (Rapport) + 3h (Calcul de Fardeau)
+    </p>
+    <p>
+        <span style="font-weight: bold;">Nom: </span>Bassel Assi
+        <br />
+        <span style="font-weight: bold;">Matricule: </span>2972
+        <br />
+        <span style="font-weight: bold;">Courriel: </span>Bassel.assi@umontreal.ca
+        <br />
+        <span style="font-weight: bold;">temps mis: </span>5h (revision design) + 1h (rapport) + 2h (grapheIA)
+    </p>
+    <h2>
+        Distribution des tâches</h2>
+    <p>
+        <span style="font-weight: bold;">Soumetteur: </span> Camille Divisia
+    </p>
+    <table cellpadding="7px">
+        <thead>
+            <tr>
+                <th class="first_col">
+                    Tâche
+                </th>
+                <th>
+                    Camille
+                </th>
+                <th>
+                    Hanz
+                </th>
+                <th>
+                    Bassel
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="first_col">
+                    Tâche 1: Réseau de Pétri
+                </td>
+                <td>
+                    Modélisation du réseau de Pétri, Analyse du réseau de Pétri (100%)
+                </td>
+                <td>
+
+                </td>
+                <td>
+
+                </td>
+            </tr>
+            <tr>
+                <td class="first_col">
+                    Tâche 2: Statechart
+                </td>
+                <td>
+
+                </td>
+                <td>
+                    Modélisation du Statechart, Génération du code et application fonctionnelle (100%)
+                </td>
+                <td>
+
+                </td>
+            </tr>
+            <tr>
+                <td class="first_col">
+                    Tâche 3: Design logiciel
+                </td>
+                <td>
+                    Révision du diagramme de paquets et des diagrammes de séquences, identification des modules réutilisables (33%)
+                </td>
+                <td>
+                    Révision du diagramme de classe et diagramme de classe conceptuel (33%)
+                </td>
+                <td>
+                    Révision du diagramme de séquence, révision des contraintes OCL.(33%)
+                </td>
+            </tr>
+            <tr>
+                <td class="first_col">
+                    Tâche 4: Qualité du design
+                </td>
+                <td>
+                    Types de Cohésion/Couplage, Principes de conceptions (50%)
+                </td>
+                <td>
+                    Discussion du fardeau (25%)
+                </td>
+                <td>
+                    Graphe IA (25%)
+                </td>
+            </tr>
+            <tr>
+                <td class="first_col">
+                    Hypothèses
+                </td>
+                <td>
+                    Réseau de Pétri (50%)
+                </td>
+                <td>
+                    Statechart (50%)
+                </td>
+                <td>
+
+                </td>
+            </tr>
+            <tr>
+                <td class="first_col">
+                    Justifications
+                </td>
+                <td>
+
+                </td>
+                <td>
+                    Statechart (50%)
+                </td>
+                <td>
+					Graphe IA (50%)
+                </td>
+            </tr>
+            <tr>
+                <td class="first_col">
+                    Redaction du rapport
+                </td>
+                <td>
+                    Reseaux de Petri, Design Logiciel, Images (50%)
+                </td>
+                <td>
+                    Vérification, Justification et Hypothèses (50%)
+                </td>
+                <td>
+
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <h2>
+        Hypothèses</h2>
+    <p>
+        <ul>
+            <li>
+                <b>Statechart</b>
+                <ul>
+                    <li>
+                        Pour commencer, nous avons supposé que l'affichage du texte "Waiting" lorsque la porte est ouverte durant la cuisson est seulement à ce moment là. En d'autres mots, si on ouvre la porte du micro-onde à n'importe quel autre moment que la durant la cuisson,
+                        rien de spécial ne se produit. On ne fait que retourner à l'état précédent et on affiche le texte qui était déjà affiché.
+                    </li>
+                    <li>
+                        Ensuite, nous avons assumé que le système retourne à l'état "Idle" après un certain nombre de temps d'inactivité, sauf lorsqu'il est en cuisson active. Ceci est pour régler le problème que l'utilisateur pourrait tout simplement oublier de repartir la
+                        cuisson après avoir sorti son met prématurément du micro-onde. Même chose si l'utlisateur entre un temps de cuisson et qu'il n'appuie pas sur "Start" après un certain temps, alors le système retourne dans l'état "Idle".
+                    </li>
+                    <li>
+                        Pour continuer, nous avons assumé que nous pouvons changer la puissance de cuisson avant de commencer, tel qu'indiqué dans l'énoncé, mais que cela ne commence pas nécéssairement le processus de la cuisson. On peut changer à volonté tant qu'un timer n'est
+                        pas sélectionner, ensuite on ne peut plus changer, car nous pensions que cela faisait plus de sens, que de commencer le processus de la cuisson lorsque la puissance est sélectionné.
+                    </li>
+                </ul>
+
+            </li>
+            <li>
+                <b>Réseau de Pétri</b> :
+                <ul>
+                    <li>
+                        Pour commencer, nous avons supposé qu'il fallait faire en sorte que dans chaque état, chaque place devait que avoir 1 seul point pour respecter la loi de la conservation, mais aussi parce qu'on pensait que 1 jeton = 1 voiture, alors qu'en réalité, un
+                        jeton dans une place veut dire qu'il est "actif". Cela a eu des conséquences sur la modélisation du premier prototype du réseau de pétri, il n'y avait rien pour représenter les lumières de passage. Après consultation avec le professeur,
+                        un autre réseau de pétri plus convenable a été modélisé.
+                    </li>
+                    <li>
+                        Nous avons aussi supposé que les places P0 et P1 ont tout le temps des jetons dans le réseau ci-dessous.
+                    </li>
+                    <li>
+                        Enfin, aux transitions t2 et t5, le jeton qui disparait est une voiture qui est sortie du tunnel et le jeton qui apparait est une lumiere de passage allumee pour faire entrer une nouvelle voiture qui attendait au depart.
+                    </li>
+                </ul>
+
+        </ul>
+    </p>
+    <h2>
+        Modélisation et Analyse du réseau de Petri</h2>
+    <p>
+        Voici notre solution pour la modélisation du tunnel Montreal - Rive Sud qui ne laisse que passer une voiture à la fois.
+    </p>
+    <ul>
+        <li>Voici un <a href="Réseau de Petri/">lien</a> vers les fichiers.</li>
+    </ul>
+    <img src="Réseau de Petri/tunnel.png" alt="tunnel petri net" />
+    <p>
+        Dans le réseau de petri, P0 et P1 représente l’attente des voitures aux entrées du tunnel, P2 et P3 représente l'intérieur du tunnel, et P4 et P5 sont les lumières de passage. On commence avec 1 jeton dans P4 ou P5. Comme t0 et t3 sont des transitions
+        avec que des sorties, P0 et P1 peuvent avoir une infinité de jetons.
+    </p>
+    <p>
+
+        Les états sont composés de tel sorte que ca fasse [P0,P1,P2,P3,P4,P5]. Considérons qu’il y a toujours des jetons dans P0 et P1.
+
+    </p>
+    <img src="Réseau de Petri/graphe_couverture.png" alt="tunnel petri net cover graph" />
+    <p>
+        Dans le graphe de couverture, il y a 4 états:
+        <ul>
+            <li>
+                Etat 1: [w,w,0,0,1,0]: Dans l'état 1, P4 contient 1 jeton, il est donc possible de franchir t1, c’est a dire que la lumière de passage du côté Montréal est allumée pour laisser passer une voiture venant de Montréal. Un jeton de P0 disparaît et un autre
+                jeton apparaît dans P2. A part t0 et t3, les autres transitions ne sont pas franchissables. On se retrouve ensuite dans l'État 2.
+            </li>
+            <li>
+                Etat 2: [w,w,1,0,0,0]: Dans l'état 2, P2 contient 1 jeton, c'est-à- dire qu’il y a une voiture venant de Montréal dans le tunnel. t2 devient franchissable. Le jeton de P2 disparaît et un nouveau jeton apparaît dans P5. A part t0 et t3, les autres transitions
+                ne sont pas franchissables. On se retrouve ensuite dans l'État 3.
+            </li>
+            <li>
+                Etat 3: [w,w,0,0,0,1]: Dans l'état 3, P5 contient 1 jeton, il est donc possible de franchir t4, c’est à dire que la voiture venant de Montréal est sortie du tunnel et est arrivée à la Rive-Sud, et la lumiere de passage du coté Rive-Sud est allumée pour
+                laisser passer une voiture venant de la Rive-Sud. Un jeton de P1 disparaît et un autre jeton apparaît dans P3. A part t0 et t3, les autres transitions ne sont pas franchissables. On se retrouve ensuite dans l’Etat 4.
+            </li>
+            <li>
+                Etat 4: [w,w,0,1,0,0]: Dans l'état 4, P3 contient 1 jeton, c'est-à- dire qu’il y a une voiture venant de la Rive-Sud dans le tunnel. t5 devient franchissable. Le jeton de P3 disparaît et un nouveau jeton apparaît dans P4. A part t0 et t3, les autres transitions
+                ne sont pas franchissables. On se retrouve ensuite dans l'État 1, où la voiture venant de la Rive-Sud est sortie et est arrivée à Montréal.
+            </li>
+        </ul>
+
+    </p>
+    <p>
+        On remarque dans le graphe de couverture, qu'à part aux sources (c’est à dire P0 et P1), il n’est possible d’avoir qu’un seul jeton dans chaque place. En plus, le graphe forme une boucle, on ne s'arrête à aucun état, ce qui respecte la loi de la conservation.
+        C’est parce qu'à part t0 et t3 qui sont les sources, seul 1 seule transition est franchissable à chaque etat. On ne peut donc pas ajouter des jetons, et si on retire le jeton, on se retrouve dans l'état suivant. <strong>Il n'est donc possible d’avoir qu’une seule voiture 
+        dans le tunnel. </strong>
+    </p>
+    <p>
+        On observe aussi que la structure du réseau de petri force le système à alterner entre les voitures de Montréal et de la Rive-Sud. Quand une voiture entre dans un tunnel, le jeton qui était dans la place de la lumière de passage disparaît, puis aucun
+        des places représentant les lumières de passage contient un jeton lorsqu’un jeton est dans les places qui représentent le fait d'être à l'intérieur du tunnel. C’est à dire qu’aucune autre voiture peut entrer dans le tunnel tant que la voiture
+        à l'intérieur n’est pas sortie. Quand la voiture sort du tunnel, le système “allume” la lumière de la ville d'arrivée de la voiture qui était à l'intérieur pour laisser entrer une autre voiture “venant de la ville d'arrivée”. Ainsi, à chaque trajet
+        accompli on change de sens. Les voitures de chaque côté sont servies équitablement, on ne peut jamais avoir plus d'une fois le même trajet de suite. <strong>Le système est donc équitable et 
+        il n’y a pas de famine. </strong>
+
+    </p>
+    <h2>Statechart du Micro-onde</h2>
+    <p>
+        Voici ma solution pour le Statechart:
+    </p>
+    <ul>
+        <li>Voici un <a href="Statechart\Microwave\model\microwave.sct">lien</a> vers le Statechart.</li>
+        <li>Voici un <a href="Statechart\Microwave\src">lien</a> vers le code Java.</li>
+    </ul>
+    <img src="Statechart\images\microwave_0.png" width="" alt="some image of a statechart" />
+
+    <h2>
+        Révision du design</h2>
+    <h3>Diagramme de classe</h3>
+    <p>Nous avons ajouté une classe système comme suggeré par le correcteur.</p>
+    <p>Voici un <a href="Design/Domaine/">lien</a> vers le fichier.</p>
+    <img src="Design/Domaine/updated_conceptual_class_diagram.jpg" alt="conceptual class diagram" />
+    <p>Pour les sections ci-dessous, les fichiers se trouvent dans le dossier <a href="Design/">"Design"</a></p>
+    <p>Le diagramme de classe, le diagramme de paquets et le diagramme de séquence de la réservation d'un siège sont dans 3911-TP2.vpp .
+    </p>
+    <h3>Diagramme de classe</h3>
+
+    <p>Nous avons mis à jour le diagramme de classe en suivant les suggestions du correcteur:</p>
+    <ul>
+        <li>Ajouter une vue pour faire un MVC</li>
+        <li>Mettre les dates d'arrivées</li>
+        <li>Pour les copies des classes abstraites, c'était un choix pour mieux espacer le diagramme et le séparer facilement selon les types de transports, le coté client, le coté administrateur, les controleurs et les vues. </li>
+    </ul>
+
+    <img src="Design/updated_class_diagram.jpg" alt="class diagram" />
+
+    <h3>Diagrammes de séquences</h3>
+    <p>Nous avons mis à jour les diagrammes de séquences en suivant les suggestions du correcteur:</p>
+    <ul>
+        <li>Ajouter des acteurs</li>
+        <li>Reduire la taille des rectangles verticaux</li>
+        <li>Retirer la partie d'attribution de la date de réservation du siège</li>
+    </ul>
+    <p>Verifier les vols/Itineraires/Trajets</p>
+    <img src="Design/getAllAvailableBoatItineraries.jpg" alt="verify boat itineraries" />
+    <img src="Design/getAllAvailableFlights.jpg" alt="verify flights" />
+    <img src="Design/getAllAvailableTrainItineraries.jpg" alt="verify train itineraries" />
+    <p>Reserver un siege</p>
+    <img src="Design/reserve_seat.jpg" alt="reserve_seat" />
+
+    <p>Payer un siege</p>
+    <img src="Design/pay_seat.jpg" alt="pay seat" />
+    <h3>
+        OCL</h3>
+    <p>Nous avons mis à jour certaines contraintes OCL.</p>
+    <p>
+        <pre>
+            <code>
+                #Un paquebot peut être assigné à plusieurs itinéraires tant qu'ils ne se chevauchent pas [OCL]. 
+
+                context Boat:
+                inv:
+                  self.itinerary->forAll(i1, i2 | 
+                    i1 = i2 or i1.arrivalDate < i2.departureDate or i2.arrivalDate < i1.departureDate)
+                
+                
+                #Un siège réservé devient assigné à un passager une fois payé: le siège est donc confirmé [OCL]
+                
+                context Seat
+                pre: not self.assigned and self.reserved
+                post: self.assigned and self.reserved and self.passenger <> null
+                inv Seat_confirmed_after_payment :
+                    self.assigned implies self.passenger <> null
+    
+                #Le client peut réserver un siège/cabine disponible dans un vol/trajet/itineraire donné [OCL]:
+    
+                context Flight
+                pre: self.seats->select(s | s.reserved)->isEmpty()			                         // on s'assure que toutes les sieges sont libres avant
+                pre: self.seats->select(s | not s.reserved)->notEmpty()		                                // s'assure qu'il y a des sieges dispo dans le vol avant que la RSV soit faites
+                pre: self.seats->select(s | not s.reserved)->notEmpty(), 'No available seats on this flight'    //si il n'y a plus de siege dispo
+                post: self.seats->select(s | s.reserved)->notEmpty()
+                inv Flight_seats :
+                   self.seats->size() >= 1
+    
+            </code>
+        </pre>
+
+    </p>
+    <ul>
+        <li>Si l'OCL ne s'affiche pas bien, voici un <a href="ocl_completed.txt">lien</a> vers le fichier contenant l'ensemble des OCL.</li>
+
+    </ul>
+    <h3>Diagramme de paquets</h3>
+    <p>Nous avons ajouté un Front End Layer pour mettre les vues.</p>
+
+    <img src="Design/updated_package_diagram.jpg" alt="package_diagram" />
+
+    <h3>Identification des modules réutilisables</h3>
+    <p>Les classes du paquet de domaine sont réutilisables:</p>
+    <ul>
+        <li>TravelEngine</li>
+        <li>Seat</li>
+        <li>Company</li>
+        <li>Destination</li>
+        <li>Itinerary</li>
+        <li>Section</li>
+    </ul>
+    <p>Les enumerations sont réutilisables:</p>
+    <ul>
+        <li>PlaneTrainType</li>
+        <li>DispositionType</li>
+        <li>BoatType</li>
+    </ul>
+    <p>A partir de ces classes et enumerations on peut creer de nouveaux modes de transport dans le système de reservation de voyages, tel que les voyages en bus.</p>
+    <p>Les interfaces sont aussi réutilisables:</p>
+    <ul>
+        <li>iPay</li>
+        <li>iRepository</li>
+    </ul>
+    <p>Il est possible de creer de nouvelles classes qui implemente ces interfaces.</p>
+
+    <p></p>
+
+    <h2>Qualité du Design</h2>
+    <h3>Discussion de la cohésion et du couplage des modules</h3>
+    <p>On retrouve plusieurs modules dans notre diagramme de classe. Nous avons:</p>
+    <ul>
+        <li>Vues</li>
+        <li>Controleurs</li>
+        <li>Accès aux données</li>
+        <li>Domaines</li>
+        <li>Réservation et Paiement</li>
+        <li>Business, qui hérite du Domaine</li>
+    </ul>
+    <p>
+        Pour les vues et les controleurs, on retrouve de la cohésion accidentelle chez les admins et de la cohésion temporelle
+        chez les clients, et du couplage de contenu. Ceci est normal car l'acteur (L'admin ou le client) passent par ces 
+        classes pour interagir avec le reste. Pourtant, le Business Logic Layer est sur la droite du graphe IA, car il a besoin de la vue
+        pour fonctionner et accède au Data Access Layer, ce qui rend le paquet assez stable.
+        <br/><br/> 
+        Pour les modules d'accès aux données, on retrouve une cohésion logique et un couplage par paquet. 
+        Ils doivent accéder aux données des autres classes (ceux du module Business) pour fonctionner.
+        <br/><br/> 
+        Domaines et Business sont un couplage d'héritage. Sachant que les differents types de transports ont à 
+        peu près la même structure, on peut analyser le module du Domaine: au niveau du couplage, les classes sont dependantes les unes des autres,
+        mais ils restent tous dans une catégorie, celle du transport. Les classes restent quand même très cohésifs 
+        puisque chaque attribut et méthode est spécifique à la classe. Cela explique que le Domaine est est sur la droite du graphe IA. 
+		Le compromis entre abstraction et concret est juste.
+        <br/><br/> 
+        Reservation et Payment sont interdépendants: Payment a besoin de Reservation pour fonctionner (couplage par controle),
+        et on a l'air d'être sur de la cohésion procédurale. Ceci permet de dire qu'il faut réserver avant de payer.
+        <br/><br/>
+        En essayant d'associer l'analyse de nos modules avec le calcul du fardeau et le graphe IA, il est cohérent de retrouver des fardeaux
+        élévés et de l'instabilité dans la plupart des paquets. Les modules contiennent beaucoup de classes du domaine d'application. Cela explique
+        pourquoi autant de nos modules ne sont pas très cohésifs et ont beaucoup de couplage.
+    </p>
+    <h3>Discussion du Fardeau des classes</h3>
+    <p>Nous avons sélectionné quelques classes qui sont importantes dans notre diagramme de classe. La raison pourquoi nous en sélectionnons que quelques uns, est que plusieurs classes se ressemblent, car elles héritent de la même classe abstraite. Voici
+        une liste des classes:
+        <ul>
+            <li>
+                <h3><b>Plane</b></h3>
+                F(Plane) = {TravelEngine, String, Company, Reservation, boolean, Payment, int, IPay, Itinerary, Destination, Section, DispositionType, Seat, char, SeatType, double, Airline, Flight, Date, Airport, PlaneSection, PlaneTrainType, PlaneSeat} = 23
+                <br/> On peut voir ici que Plane a un fardeau assez élevé, ce qui fait du sens car elle est une classe du domaine d'application. Nous allons la comparer avec la classe abstraite travel engine pour voir si le fardeau est proportionnel à
+                ce que nous attendons.
+            </li>
+            <li>
+                <h3><b>TravelEngine</b></h3>
+                F(TravelEngine) = {String, Company, Reservation, Date, boolean, int, Payment, IPay Itinerary, Destination, Section, DispositionType, double Seat, char, SeatType} = 16
+                <br/> Le fardeau est beaucoup moins élevé que la classe Plane, avec un fardeau de 16. Ceci est normal et attendu, car TravelEngine est une classe abstraite, qui a moins de dépendences vers d'autres classes, donc un fardeau plus faible.
+                Elle dépend principalement de d'autres classes abstraites et elle est une classe du domaine métier.
+
+            </li>
+            <li>
+                <h3><b>ClientController</b></h3>
+                F(ClientController) = { String, boolean, Date, PlaneTrainType, Airport, Destination, Itinerary Flight, Airline, Plane, PlaneSection, Section, double PlaneSeat, Station, TrainItinerary, Train, TrainLine TrainSeat, TrainSection BoatType, BoatSection, Boat,
+                Cabin, Port, BoatItinerary, Client, Reservation, IPay, Seat, char, int, SeatType, Company, } = 34 Ici ClientController a un fardeau très élevé, mais c'est normal. C'est une classe d'application qui s'occupe de faire des tâches très spécifique
+                à notre système. Donc il est attendu que cette classe ait un fardeau élevé.
+            </li>
+        </ul>
+
+        Comme vous pouvez voir, nous avons choisi une classe abstraite, une classe concrète et une classe de controlleur pour montrer le fardeau de ces classes dans notre système. On peut s'attendre à un niveau de couplage similaire pour les classes de même type,
+        car soit elles héritent d'une classe abstraite et elles ont un comportement similaire, soit elles sont des classes qui ont un comportement similaire, tel les controlleurs et les vues. En général, nous croyons que les classes ont un fardeau raisonnable
+        selon leur domaine de classe, ce qui veut dire que la conception respecte le principe que les classes qui sont moins réutilisables aient un fardeau plus élevé et que les classes plus réutilisables ait un fardeau moins élevé.
+    </p>
+
+    <h3>Graphe IA</h3>
+    <img src="Design/grapheIA.png" />
+    <p>
+        Pour le graphe IA, nous avons utilisé le diagramme de paquets comme référence. Pour mesurer l'instabilité des paquets, nous avons observé le nombre de dépendances sortantes divisé par la somme des dépendances entrantes et sortantes. Pour mesurer l'abstraction,
+        nous avons compté le nombre total de classes dans le paquet divisé par le nombre de classes abstraites dans le paquet, en incluant les interfaces comme des classes abstraites. Les interfaces sont des éléments clés car elles permettent de définir
+        des contrats que les classes doivent implémenter. Les interfaces sont donc une forme d'abstraction, car elles définissent un comportement sans spécifier comment ce comportement doit être implémenté.
+    </p>
+    <p>
+        On observe qu'on a peu d'abstraction. Ceci est du au fait qu'on a presque pas de classes abstraites (excepté les interfaces) 
+        dans la plupart des paquets, à part celui du Domaine. 
+        Cependant, la plupart de nos paquets s'éloignent de la ligne centrale, ce qui veut dire qu'ils sont instables, car ils sont trop concrets.
+        Ceci s'explique par l'analyse du type de cohésion et de couplage de chaque module, en plus du fardeau élevé des classes
+        dans les paquets (voir sections ci-dessus). Beaucoup de nos paquets contiennent des classes du domaine d'application, et les classes ont
+        beaucoup de dépendances entre eux dans les paquets, ce qui explique la tendance du graphe. On pourrait remedier à ce problème en généralisant encore plus
+		certains paquets qui sont trop concrets.
+        
+    </p>
+    
+    <h3>Principes de conception:</h3>
+
+    <p>Voila les principes SOLID-C qui ont bien été utilisés:</p>
+    <ul>
+        <li>
+            <strong>ISP:</strong> les interfaces sont bien separées selon les classes qui les implémentes.
+         On ne retrouve pas une interface qui implémente deux classes dans 2 paquets differents. Bon usage de l'ISP selon la définition du cours. 
+        </li>
+        <li>
+            <strong>LSP:</strong> Les transports sont conformes au domaine. 
+        </li>
+        <li>
+            <strong>OCP:</strong> Le paquet de domaine permet d'ajouter de nouveaux types de transports, différents des avions, trains et bateaux.
+        </li>
+    </ul>
+    <p>Par contre, il y a quelques violations:</p>
+    <ul>
+        <li>
+            <strong>CRP:</strong> on utilise de l'héritage au lieu des compositions, mais ceci est dû au fait que cela ne sert pas qu'à réutiliser, c'est aussi pour 
+            favoriser l'abstraction (bonne usage du DIP) pour les différents types de transports.
+        </li>
+        <li>
+            <strong>OCP:</strong> si on veut pouvoir créer des sous-types de transports dans le futur (ex: TGV/Train regulier comme sous-type de trains), il va falloir modifier le code dans la classe
+            (ajouter des attributs et méthodes), mais ce n'est pas prévu pour cet exercice, donc il n'est pas nécéssaire à ce que les classes de transports spécifiques soient abstraites, en plus il ne faut pas abuser de l'abstraction.
+        </li>
+        <li>
+            <strong>SRP: </strong> Les vues et les controlleurs ne respectent pas vraiment le SRP, car ce sont les portes d'entrées au système.
+        </li>
+    </ul>
+
+    <h2>Justifications</h2>
+    <p>
+        Pour le <b>Statechart</b> nous n'avons pas réussi à faire fonctionner l'application. Nous avons essayé de réinstaller l'anciennce version de Yakindu, tel que recommandé par les démonstrateurs, mais cela ne fonctionne toujours pas. Le statechart
+        en lui même fonctionne bien, mais lorsque nous ouvrons l'application, seulement le bouton OPEN fonctionne et rien d'autres. Après plusieurs heures a tenter de le faire fonctionner, nous avons décidé de nous concentrer sur autres choses, car cela
+        semble être dû au fait que le projet fourni par le professeur est basé sur une ancienne version de Yakindu et cela cause des problèmes de compatibilités. Sinon, nous avons décidé que lorsque la porte est ouverte lors de la cuisson, cela affiche
+        Waiting, mais pas ailleurs. La raison est que selon l'énoncé, ce n'est que durant la cuisson que ce message s'affiche, donc nous avons décidé de ne pas généralisé ceci aux autres états aussi. Pour le Timer, nous avons décidé d'entrer les numéros
+        dans cet ordre: unité, dizaines, centaines et millièmes. La raison est que c'était plus facile à calculer à l'interne, cela donne le même résultat au final et qu'aucune spécification formel n'a été donné à ce sujet.
+        </br>
+		Pour le <b>Design</b>, nous avons rajouté une classe système dans le diagramme de classe et celui du domaine. Dans le domaine, nous n'avons pas rajouté les controlleurs et les vues, car elles n'ont pas leurs places là, cependant dans le diagramme
+		de classe, nous l'avons connecté aux vues, car c'est elle qui gère les vues lors de l'initialisation de l'application. Cet ajout à été fait selon la correction du devoir 1, qui nous indiquait de rajouter les vues et une classe système, ce qui est
+		la raison pourquoi nous l'avons ajouté.
+    </p>
+
+
+
+</body>
+
+</html>

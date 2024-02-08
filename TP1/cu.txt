@@ -1,0 +1,64 @@
+#Admin
+- creer un aeroport
+- modifier un aeroport
+- supprimer un aeroport
+- creer une compagnie aérienne
+- modifier une compagnie aérienne
+- supprimer une compagnie aérienne
+- creer un vol
+- modifier un vol
+- supprimer un vol
+- creer une section d’un avion
+- creer avion
+- creer rangee
+- creer colonne
+- creer siege [att: prix, type]
+- consulter les details des vols d’un aeroport
+- consulter les vols effectues par une compagnie aerienne
+- creer un port
+- modifier un port
+- supprimer un port
+- creer un compagnie de croisiere
+- modifier un compagnie de croisiere
+- supprimer un compagnie de croisiere
+- creer un itineraire
+- modifier un itineraire
+- supprimer un itineraire
+- creer une section d’un bateau
+- creer bateau
+- creer cabine [att: prix, type]
+- consulter les details des itineraires d’un port
+- consulter les itineraires effectues par une compagnie navale
+- creer un gare
+- modifier un gare
+- supprimer un gare
+- creer un compagnie ferroviaire
+- modifier un compagnie ferroviaire
+- supprimer un compagnie ferroviaire
+- creer un ligne de train
+- modifier un ligne de train
+- supprimer un ligne de train
+- creer un trajet
+- modifier un trajet
+- supprimer un trajet
+- creer une section d’un train
+- creer train
+- creer rangee
+- creer colonne
+- creer siege [att: prix, type]
+- consulter les details des trajets d’une gare
+- consulter les trajets effectues par une compagnie ferroviaire
+- afficher liste des vols
+- afficher liste des itineraires
+- afficher liste des trajets
+
+#Client
+- chercher les vols d’un aeroport d’origine a une destination avec des sieges libres, a une date donnee, pour une classe donnee. 
+- chercher les trajets d’un port d’origine a une destination avec des sieges libres, a une date donnee, pour une classe donnee. 
+- reserver un siege d’avion
+- choisir aile ou fenetre
+- reserver un siege de train
+- payer un siege
+-  chercher les trajets d’une gare d’origine a une destination avec des sieges libres, a une date donnee, pour une classe donnee. 
+- reserver une cabine
+- payer une cabine

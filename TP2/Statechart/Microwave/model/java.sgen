@@ -1,0 +1,15 @@
+GeneratorModel for yakindu::java {
+
+	statechart microwave {
+
+		feature Outlet {
+			targetProject = "TP2"
+			targetFolder = "src"
+			libraryTargetFolder = "src"
+		}
+		feature GeneralFeatures {
+			RuntimeService = true
+			TimerService = true
+		}
+	}
+}

@@ -1,0 +1,1 @@
+Timer n'est probablement pas bien implémenté. Il faut que chaque digit qui soit entré en input soit ajouté à une variable total et selon leur position, on fait x1, x10, x100, x1000.
